@@ -20,13 +20,17 @@ namespace SVG2Poly.SWGPath
 		public bool IsClosed { get; }
 
 		/// <summary>
+		/// Количество точек пути
+		/// </summary>
+		public int PointsCount { get; }
+
+		/// <summary>
 		/// точки
 		/// </summary>
 		public IEnumerable<Vector2> Points { get; }
 
 
 		public void AddPoint(Vector2 source);
-
 
 
 	}

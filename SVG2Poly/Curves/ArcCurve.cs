@@ -94,7 +94,7 @@ namespace SVG2Poly.Curves
 
 			//c
 
-			Vector2 C = new Vector2(
+			this.C = new Vector2(
 
 				Cmedi.X * Cos_R - Cmedi.Y * Sin_R + middle_x + End.X,      //последние 2 слагаемых = (Start.X + End.X) / 2;
 

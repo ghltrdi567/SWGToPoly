@@ -15,12 +15,19 @@ namespace SVG2Poly.SWGPath
 	{
 		private List<Vector2> _points;
 
-
+		public SwgPathBase()
+		{
+			_points = new List<Vector2>();
+		}
 		public bool IsClockwise => CheckClockwise();
 
 		public bool IsClosed => CheckClosed();
 
 		public IEnumerable<Vector2> Points => _points;
+
+		public Vector2 LastPoint => _points.Count == 0? Vector2.Zero: _points[_points.Count - 1];
+
+		public int PointsCount => _points.Count;
 
 		public void ClosePath()
 		{
@@ -66,7 +73,7 @@ namespace SVG2Poly.SWGPath
 
 		}
 
-		protected virtual string ToJTSLineString()
+		public virtual string ToJTSLineString()
 		{
 			var sb = new StringBuilder();
 
@@ -76,7 +83,7 @@ namespace SVG2Poly.SWGPath
 			for (int i = 0; i < _points.Count; i++)
 			{
 				sb.Append(_points[i].X.ToString(CultureInfo.InvariantCulture) + " " +
-						(-_points[i].Y).ToString(CultureInfo.InvariantCulture));
+						(_points[i].Y).ToString(CultureInfo.InvariantCulture));
 
 				if (i != _points.Count - 1) sb.Append(", ");
 
