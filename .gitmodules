@@ -1,0 +1,3 @@
+[submodule "earclipper"]
+	path = earclipper
+	url = https://github.com/NMO13/earclipper.git
