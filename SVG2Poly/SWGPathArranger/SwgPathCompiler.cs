@@ -221,6 +221,19 @@ namespace SVG2Poly.SWGPathArranger
 
 			result.Add(currentPath);
 
+
+			
+			foreach(var path in result)
+			{
+				//Убирем соседние одинаковые значения
+				path?.ErodeDoublings();
+
+
+			}
+
+
+
+
 			return result;
 		}
 

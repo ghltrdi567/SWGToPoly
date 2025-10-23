@@ -73,6 +73,55 @@ namespace SVG2Poly.SWGPath
 
 		}
 
+		/// <summary>
+		/// Удаляет соседние одинаковые точки
+		/// </summary>
+		public virtual void ErodeDoublings()
+		{
+
+			int end = _points.Count - 1;
+
+			for (int i = 0; i < end; i++)
+			{
+				if (_points[i] == _points[i + 1])
+				{
+					end--;
+
+					_points.RemoveAt(i);
+					i--;
+				}
+
+			}
+
+
+
+		}
+
+		/// <summary>
+		/// Если начало и конец одинаковые -удаляет одно из
+		/// </summary>
+		public virtual void RemoveSameEnd()
+		{
+			if(_points.Count >0) {
+
+				if (_points[0] == _points[_points.Count - 1])
+				{
+
+					_points.RemoveAt(0);
+				}
+			
+			
+			
+			
+			
+			}
+
+
+
+
+		}
+
+
 		public virtual string ToJTSLineString()
 		{
 			var sb = new StringBuilder();

@@ -1,34 +1,27 @@
-﻿using Svg;
+﻿using EarClipperLib;
+using Svg;
 using Svg.Pathing;
+using SVG2Poly.Helpers;
 using SVG2Poly.SWGPath;
 using SVG2Poly.SWGPathArranger;
+using System.Numerics;
+using System.Text;
 
 
 
-string path = "M339 0h-63v622l-130 -83l-32 47l175 114h50v-700z";
+string inputDirectory = Path.Combine(Environment.CurrentDirectory, "IN"); 
+
+string outDirectory = Path.Combine(Environment.CurrentDirectory, "OUT");
 
 
-var pty = new SvgPathBuilder().ConvertFromString(path);
+string[] Files = Directory.GetFiles(inputDirectory, "*.svg");
 
-
-var comp = new SwgPathCompiler(3);
-
-
-var paths = comp.CompilePaths(pty as SvgPathSegmentList);
-
-
-
-foreach(var pathu in paths)
+for (int i = 0; i < Files.Length; i++)
 {
-	if(pathu is SwgPathBase pi)
-	{
+	Console.WriteLine("Файл: " + Files[i] + Environment.NewLine);
 
 
-		string str = pi.ToJTSLineString();
-
-		var ui = pi.IsClosed;
-
-		var u = pi.IsClockwise;
-
-	}
+	SWGFileToBinaryTriangles.SvgFileToBinaryTriangles(Files[i], outDirectory);
 }
+
+
