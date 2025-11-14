@@ -17,7 +17,7 @@ namespace SVG2Poly.Helpers
 		public static void SvgFileToBinaryTriangles(string FullPathToInputSWG, string PathToOutputBinaryDirectory)
 		{
 
-			//В копиляторе задаём дискретность кривых
+			//В копиляторе задаём дискретность кривых (Сколько будет промежуточных точек)
 			var comp = new SwgPathCompiler(1);
 
 			//программа не знает. какая часть пути будет внешней границей полигона  - получаем из файла

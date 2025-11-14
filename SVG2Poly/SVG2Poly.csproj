@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Clipper2" Version="1.5.4" />
     <PackageReference Include="EarClipper" Version="1.2.2" />
+    <PackageReference Include="geometry3Sharp" Version="1.0.324" />
     <PackageReference Include="Svg" Version="3.4.7" />
   </ItemGroup>
 
