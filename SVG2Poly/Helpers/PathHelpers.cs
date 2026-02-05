@@ -107,7 +107,7 @@ namespace SVG2Poly.Helpers
 
 			writer.Write(source.Count);
 
-
+			//по количеству треугольников
 			for (int i = 0; i < source.Count/3; i++)
 			{
 				writer.Write(source[i * 3].X.ToSingle());
@@ -124,17 +124,27 @@ namespace SVG2Poly.Helpers
 
 			}
 
-
-
-
-
-
-
-
-
 		}
 
+		public List<Vector3m> ReadTrianglesDataFromBinary(BinaryReader reader)
+		{
 
+
+			int VericeCount = reader.ReadInt32();
+
+			if(VericeCount % 3 != 0) throw new Exception("количество вершин должно делиться на 3");
+
+			List<Vector3m> result = new List<Vector3m>(VericeCount * 3);
+
+
+			for (int i = 0; i < VericeCount; i++)
+			{
+				result.Add(new Vector3m(reader.ReadSingle(), reader.ReadSingle(), 0)); 
+
+			}
+
+			return result;
+		}
 
 
 	}
