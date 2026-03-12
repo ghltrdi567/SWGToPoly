@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
@@ -17,7 +18,7 @@ namespace SVG2Poly.SWGPath
 
 		public SwgPathBase()
 		{
-			_points = new List<Vector2>();
+			_points = new List<Vector2>(0);
 		}
 		public bool IsClockwise => CheckClockwise();
 
@@ -73,6 +74,9 @@ namespace SVG2Poly.SWGPath
 
 		}
 
+
+		
+
 		/// <summary>
 		/// Удаляет соседние одинаковые точки
 		/// </summary>
@@ -121,6 +125,7 @@ namespace SVG2Poly.SWGPath
 
 		}
 
+		
 
 		public virtual string ToJTSLineString()
 		{
@@ -147,6 +152,28 @@ namespace SVG2Poly.SWGPath
 
 
 		}
+
+
+		public static bool IsSame(ISwgPath one, ISwgPath two)
+		{
+
+			var oneenum = one.Points.GetEnumerator();
+
+			var twoenum = two.Points.GetEnumerator();
+
+			while(oneenum.MoveNext() && twoenum.MoveNext())
+			{
+				if (oneenum.Current != twoenum.Current) return false;
+			}
+
+			//один закончился, другой нет
+			if (oneenum.MoveNext() || twoenum.MoveNext()) return false;
+			else return true;
+			
+
+
+		}
+
 
 	}
 }

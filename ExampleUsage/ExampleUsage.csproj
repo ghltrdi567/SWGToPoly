@@ -1,15 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EarClipper" Version="1.2.2" />
-    <PackageReference Include="Svg" Version="3.4.7" />
+    <ProjectReference Include="..\SVG2Poly\SVG2Poly.csproj" />
   </ItemGroup>
 
 </Project>

@@ -33,5 +33,6 @@ namespace SVG2Poly.SWGPath
 		public void AddPoint(Vector2 source);
 
 
+
 	}
 }

@@ -16,6 +16,8 @@ namespace SVG2Poly.SWGPolygon
 
 		public IEnumerable<ISwgPath> InternalHoles { get; }
 
+		public void AddHole(ISwgPath hole);
+
 
 	}
 }

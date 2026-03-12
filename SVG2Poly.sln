@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SVG2Poly", "SVG2Poly\SVG2Poly.csproj", "{CC55AD42-57DB-482B-8CEC-5CC8829AA388}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleUsage", "ExampleUsage\ExampleUsage.csproj", "{6A038F11-1B95-44AD-A59D-A2357B975B8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CC55AD42-57DB-482B-8CEC-5CC8829AA388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC55AD42-57DB-482B-8CEC-5CC8829AA388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC55AD42-57DB-482B-8CEC-5CC8829AA388}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A038F11-1B95-44AD-A59D-A2357B975B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A038F11-1B95-44AD-A59D-A2357B975B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A038F11-1B95-44AD-A59D-A2357B975B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A038F11-1B95-44AD-A59D-A2357B975B8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
