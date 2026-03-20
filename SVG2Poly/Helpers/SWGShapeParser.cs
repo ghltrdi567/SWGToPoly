@@ -13,7 +13,7 @@ namespace SVG2Poly.Helpers
 	internal class SWGShapeParser
 	{
 
-		public static List<SWGPolygon.ISwgPolygon> ParsePolygons(SvgDocument svgdoc, int outerShellIndex = 0, bool checkOrientation = true, bool checkends = true)
+		public static List<SWGPolygon.ISwgPolygon> ParsePolygons(SvgDocument svgdoc, bool checkOrientation = true, bool checkends = true, int? outerShellIndex = null )
 		{
 
 			//В копиляторе задаём дискретность кривых (Сколько будет промежуточных точек)
@@ -50,7 +50,7 @@ namespace SVG2Poly.Helpers
 
 						List<ISwgPath> Holes = new List<ISwgPath>();
 
-
+						int pathsCount = paths.Count();
 
 
 						int iterator = 0;
@@ -60,12 +60,13 @@ namespace SVG2Poly.Helpers
 							{
 
 
-								string str = pi.ToJTSLineString();
+								//string str = pi.ToJTSLineString();
 
 								if (!pi.IsClosed) Console.WriteLine("Не замкнута!");
 
 								//добавляем внешнюю - нам надо потив часовой стрелке
-								if (iterator++ == outerShellIndex)
+								//Полагаем. что последний путь - внешняя граница
+								if (outerShellIndex == null? (iterator++ == pathsCount-1):(iterator++ == outerShellIndex) )
 								{
 									if (checkOrientation) { if (pi.IsClockwise) pi.Reverse(); }
 									Externals.Add(pi);
@@ -85,7 +86,8 @@ namespace SVG2Poly.Helpers
 							}
 						}
 
-						if (Externals.Count != 1) Console.WriteLine("Не одна внешняя");
+						if (Externals.Count != 1) 
+							Console.WriteLine("Не одна внешняя");
 
 						foreach (var item in Externals)
 						{

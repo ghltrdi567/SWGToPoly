@@ -227,7 +227,7 @@ namespace SVG2Poly.Helpers
 
 			//программа не знает. какая часть пути будет внешней границей полигона  - получаем из файла
 
-			int ExternalsIndex = 0;
+			int? ExternalsIndex = null;
 
 			string EnternalFilePath = FullPathToInputSWG + ".external.txt";
 
@@ -256,7 +256,7 @@ namespace SVG2Poly.Helpers
 			
 
 			//парсим полигоны из Svg пути
-		 	List<SWGPolygon.ISwgPolygon> parsedPOlygons = Helpers.SWGShapeParser.ParsePolygons(SvgDocument.Open<SvgDocument>(FullPathToInputSWG, new SvgOptions()), ExternalsIndex, true, true);
+		 	List<SWGPolygon.ISwgPolygon> parsedPOlygons = Helpers.SWGShapeParser.ParsePolygons(SvgDocument.Open<SvgDocument>(FullPathToInputSWG, new SvgOptions()),true, true, ExternalsIndex);
 
 
 			List<SWGShape.SWGTriangle> Triangles = new List<SWGShape.SWGTriangle>();
